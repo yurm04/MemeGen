@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>61D01399-5129-453B-A3B6-DC6EC43DC3C8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MemeGen</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0B6EE674-3CB8-4A87-8EFC-6F7D6CF1415B</key>
+		<string>https://github.com/yurm04/Meme-Generator-App.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MemeGen/MemeGen.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0B6EE674-3CB8-4A87-8EFC-6F7D6CF1415B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/yurm04/Meme-Generator-App.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0B6EE674-3CB8-4A87-8EFC-6F7D6CF1415B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0B6EE674-3CB8-4A87-8EFC-6F7D6CF1415B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Meme-Generator-App</string>
+		</dict>
+	</array>
+</dict>
+</plist>
