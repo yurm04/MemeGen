@@ -19,7 +19,7 @@
 @implementation CameraViewController
 
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -29,9 +29,17 @@
         UIImageView* imgView = [[UIImageView alloc]initWithImage: img];
         
         [self.view addSubview: imgView];
-        imgView.center = CGPointMake(self.view.frame.size.width/2, imgView.frame.size.height/2);
+        imgView.center = self.view.center;
         // future:  make it load a background image in the view showing there is no camera available.
+        
+        NSLog(@"No Camera");
+    } else {
+        // if there is a camera, cameraUI will start automatically
+        [self startCameraControllerFromViewController:self usingDelegate:self];
+        NSLog(@"Camera Loaded");
     }
+    
+    
 }
 
 - (BOOL) startCameraControllerFromViewController: (UIViewController *) controller
@@ -58,7 +66,11 @@
     
 }
 
-
+#warning I have no idea if this will work
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    // if user presses cancel, the view will switch to "create tab"
+    [super.tabBarController setSelectedIndex:0];
+}
 
 
 

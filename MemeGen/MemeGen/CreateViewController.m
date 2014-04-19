@@ -8,6 +8,8 @@
 
 #import "CreateViewController.h"
 
+@import AssetsLibrary;
+
 @interface CreateViewController ()
 
 @end
@@ -18,6 +20,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    // should check to see if there is an album here.  If not, create one.
     
     
 }

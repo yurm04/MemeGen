@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>61D01399-5129-453B-A3B6-DC6EC43DC3C8</string>
+	<string>F58F0F11-B170-4192-B653-539D93C21363</string>
 	<key>IDESourceControlProjectName</key>
 	<string>MemeGen</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0B6EE674-3CB8-4A87-8EFC-6F7D6CF1415B</key>
-		<string>https://github.com/yurm04/Meme-Generator-App.git</string>
+		<key>6E3E16A8-1D5B-4133-AFD2-3742B2FA8FDC</key>
+		<string>https://github.com/yurm04/MemeGen.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>MemeGen/MemeGen.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0B6EE674-3CB8-4A87-8EFC-6F7D6CF1415B</key>
+		<key>6E3E16A8-1D5B-4133-AFD2-3742B2FA8FDC</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/yurm04/Meme-Generator-App.git</string>
+	<string>https://github.com/yurm04/MemeGen.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0B6EE674-3CB8-4A87-8EFC-6F7D6CF1415B</string>
+	<string>6E3E16A8-1D5B-4133-AFD2-3742B2FA8FDC</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0B6EE674-3CB8-4A87-8EFC-6F7D6CF1415B</string>
+			<string>6E3E16A8-1D5B-4133-AFD2-3742B2FA8FDC</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Meme-Generator-App</string>
+			<string>MemeGen</string>
 		</dict>
 	</array>
 </dict>
