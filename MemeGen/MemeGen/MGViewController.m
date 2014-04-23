@@ -30,11 +30,13 @@
     // Using the Assets Library to populate collection view
 }
 
-#pragma mark Camera Controls
 ////////////////////
 // CAMERA CONTROL //
 ////////////////////
 
+#pragma mark - Camera Controls
+
+// Brings Up Camera UI
 - (IBAction)takePhoto:(id)sender {
     
     // Instantiating and presenting camera interface
@@ -64,18 +66,80 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
+// Selects photo from camera roll when Create Meme button pressed
+- (IBAction)selectPhoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = NO;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+// Handles selected image, will prepare to segue to the CreateMeme VC
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+        self.pickedImage = chosenImage;
+        
+    }
+    else
+    {
+        UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
+        self.pickedImage = chosenImage;
+    }
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    [self presentCreateMemeViewController:self];
+    
+}
 
 
+////////////////
+// NAVIGATION //
+////////////////
 
-/*
 #pragma mark - Navigation
 
+// Presenting CreateMeme programatically because it can be presented by either taking a camera or selecting image
+- (void) presentCreateMemeViewController: (id)sender
+{
+    CreateViewController *createVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CreateMeme"];
+    
+    createVC.passedImage = self.pickedImage;
+    
+    [self.navigationController pushViewController:createVC animated:YES];
+}
+
+/*
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    CreateViewController *createVC = (CreateViewController *)segue.destinationViewController;
+    createVC.passedImage = self.pickedImage;
+    
 }
-*/
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

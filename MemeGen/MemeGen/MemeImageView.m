@@ -30,6 +30,13 @@
     return self;
 }
 
+// Save View as Photo
+
+
+
+
+
+
 #define MAX_TEXT_VIEWS 2
 
 - (void) addTextWithTapRecognizer:(UITapGestureRecognizer *)tap

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CameraViewController.h"
+#import "CreateViewController.h"
+
 @import MediaPlayer;
 @import MobileCoreServices;
 @import AssetsLibrary;
@@ -16,6 +18,8 @@
 
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *takePhotoButton;
+
+@property (strong, nonatomic) UIImage *pickedImage;
 
 
 

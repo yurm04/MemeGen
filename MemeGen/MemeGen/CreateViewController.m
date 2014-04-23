@@ -14,6 +14,8 @@
 
 @interface CreateViewController ()
 
+
+
 @end
 
 @implementation CreateViewController
@@ -37,10 +39,58 @@
     */
     
     // adding meme image as subview
-    UIImage *image = [UIImage imageNamed:@"camera.png"];
-    MemeImageView *meme = [[MemeImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, image.size.width, image.size.height) image:image];
-    [self.view addSubview:meme];
-    meme.center = self.view.center;
+    //UIImage *image = [UIImage imageNamed:@"camera.png"];
+    // Using passedImage 
+    self.memeView = [[MemeImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, self.passedImage.size.width, self.passedImage.size.height) image:self.passedImage];
+    [self.view addSubview:self.memeView];
+    self.memeView.center = self.view.center;
+}
+- (IBAction)saveMeme:(id)sender {
+    [self savePhotoOfView:self.memeView];
+}
+
+- (void)savePhotoOfView:(UIView *)imageView
+{
+    UIGraphicsBeginImageContext(imageView.bounds.size);
+    
+    
+    [imageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    UIImageWriteToSavedPhotosAlbum(viewImage,
+                                   self,
+                                   @selector(savedPhotoImage:didFinishSavingWithError:contextInfo:),
+                                   NULL);
+
+    /*
+    [imageView drawRect:imageView.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImageWriteToSavedPhotosAlbum(image,
+                                   self,
+                                   @selector(savedPhotoImage:didFinishSavingWithError:contextInfo:),
+                                   NULL);
+     */
+}
+
+- (void)   savedPhotoImage:(UIImage *)image
+  didFinishSavingWithError:(NSError *)error
+               contextInfo:(void *)contextInfo
+{
+    NSString *message = @"This image has been saved to your Photos album";
+    if (error) {
+        message = [error localizedDescription];
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning

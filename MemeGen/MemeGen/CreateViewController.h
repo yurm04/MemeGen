@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MemeImageView.h"
 
 @interface CreateViewController : UIViewController
 
+@property (strong, nonatomic) UIImage *passedImage;
+@property (strong, nonatomic) MemeImageView *memeView;
+
+- (void)savePhotoOfView:(UIImageView *)imageView;
+- (void)   savedPhotoImage:(UIImage *)image
+  didFinishSavingWithError:(NSError *)error
+               contextInfo:(void *)contextInfo;
 
 @end
