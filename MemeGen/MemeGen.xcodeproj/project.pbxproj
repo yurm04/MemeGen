@@ -248,6 +248,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = com.yestevez;
 				TargetAttributes = {
+					D8E0CD3418FDAA050064A8F4 = {
+						DevelopmentTeam = VD39WD9U56;
+					};
 					D8E0CD5518FDAA050064A8F4 = {
 						TestTargetID = D8E0CD3418FDAA050064A8F4;
 					};
@@ -430,10 +433,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MemeGen/MemeGen-Prefix.pch";
 				INFOPLIST_FILE = "MemeGen/MemeGen-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -443,10 +449,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MemeGen/MemeGen-Prefix.pch";
 				INFOPLIST_FILE = "MemeGen/MemeGen-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
