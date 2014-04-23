@@ -14,11 +14,7 @@
 
 @interface CreateViewController ()
 
-- (void)savePhotoOfView:(UIImageView *)imageView;
 
-- (void)   savedPhotoImage:(UIImage *)image
-  didFinishSavingWithError:(NSError *)error
-               contextInfo:(void *)contextInfo;
 
 @end
 
@@ -44,25 +40,11 @@
     
     // adding meme image as subview
     //UIImage *image = [UIImage imageNamed:@"camera.png"];
-    // Using passedImage
-    if (!_memeView) {
-        _memeView = [[MemeImageView alloc]init];
-        
-    }
-    CGRect viewFill = CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height / 3);
-    self.memeView.image = self.passedImage;
+    // Using passedImage 
+    self.memeView = [[MemeImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, self.passedImage.size.width, self.passedImage.size.height) image:self.passedImage];
     [self.view addSubview:self.memeView];
     self.memeView.center = self.view.center;
 }
-
-
-
-///////////////
-// SAVE MEME //
-///////////////
-
-# pragma mark - Save Meme
-
 - (IBAction)saveMeme:(id)sender {
     [self savePhotoOfView:self.memeView];
 }
@@ -70,6 +52,7 @@
 - (void)savePhotoOfView:(UIView *)imageView
 {
     UIGraphicsBeginImageContext(imageView.bounds.size);
+    
     
     [imageView.layer renderInContext:UIGraphicsGetCurrentContext()];
     
@@ -82,6 +65,16 @@
                                    @selector(savedPhotoImage:didFinishSavingWithError:contextInfo:),
                                    NULL);
 
+    /*
+    [imageView drawRect:imageView.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImageWriteToSavedPhotosAlbum(image,
+                                   self,
+                                   @selector(savedPhotoImage:didFinishSavingWithError:contextInfo:),
+                                   NULL);
+     */
 }
 
 - (void)   savedPhotoImage:(UIImage *)image
