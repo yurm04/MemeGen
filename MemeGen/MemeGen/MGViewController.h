@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "CameraViewController.h"
+@import MediaPlayer;
+@import MobileCoreServices;
 @import AssetsLibrary;
 
-
-
-@interface MGViewController : UIViewController 
+@interface MGViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *takePhotoButton;
-@property (strong, nonatomic) CameraViewController *cameraVC;
+
+
 
 @end

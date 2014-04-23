@@ -8,6 +8,8 @@
 
 #import "MGViewController.h"
 
+
+
 @interface MGViewController ()
 
 //- (ALAssetsLibrary *) assetsLibrary;
@@ -28,13 +30,42 @@
     // Using the Assets Library to populate collection view
 }
 
-- (IBAction)takePhotoPushed:(id)sender {
-    if (!_cameraVC) {
-        self.cameraVC = [[CameraViewController alloc]init];
-    } else {
-        [self.cameraVC takePhoto];
-    }
+#pragma mark Camera Controls
+////////////////////
+// CAMERA CONTROL //
+////////////////////
+
+- (IBAction)takePhoto:(id)sender {
+    
+    // Instantiating and presenting camera interface
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    
+    // Setting the CameraAppVC as the picker delegate
+    picker.delegate = self;
+    
+    // camera interface and user interaction handled by the system
+    
+    /*
+     Have to set media types.  Set mediaTypes property to an array containing still image type
+     first call availableMediaTypesForSourceType: class method to find out which media types are available
+     do an if statment to save the still image type to an array
+     call the mediaTypes method with the array with only still images
+     or apparently the default value is image only?
+     [picker mediaTypes:@[@"kUTTypeImage"]];
+     For stills only
+     */
+    
+    
+    // picker allows editing
+    picker.allowsEditing = YES;
+    
+    // setting the source type as the camera rather than the media browser
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:NULL];
 }
+
+
+
 
 /*
 #pragma mark - Navigation

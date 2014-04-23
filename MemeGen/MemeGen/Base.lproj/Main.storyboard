@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Tzh-Cj-BNc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Tzh-Cj-BNc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -28,7 +28,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Aiz-V3-fpb"/>
                                     <barButtonItem title="Take Photo" id="yrn-DV-U5c">
                                         <connections>
-                                            <action selector="takePhotoPushed:" destination="vI3-Tw-dev" id="NmZ-I0-IX7"/>
+                                            <action selector="takePhoto:" destination="vI3-Tw-dev" id="NuJ-HN-meO"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -43,6 +43,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BIN-qw-2Ua"/>
+                    <connections>
+                        <outlet property="takePhotoButton" destination="yrn-DV-U5c" id="f10-KB-JqS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pru-US-yEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
