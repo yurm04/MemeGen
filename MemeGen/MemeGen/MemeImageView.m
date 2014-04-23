@@ -11,13 +11,13 @@
 
 @implementation MemeImageView
 
-#warning to scale images, self.contentMode = UIUIViewContentModeScaleAspectFit
+#warning to scale images, self.contentMode = UIViewContentModeScaleAspectFit
 
-- (id)initWithFrame:(CGRect)frame image: (UIImage *)image
+- (id)init //WithFrame:(CGRect)frame image: (UIImage *)image
 {
-    self = [super initWithFrame:frame];
+    self = [super init];  //]WithFrame:frame];
     if (self) {
-        self.image = image;
+        //self.image = image;
         self.bounds = super.frame;
         self.clipsToBounds = YES;
         
@@ -30,13 +30,8 @@
     return self;
 }
 
-// Save View as Photo
 
-
-
-
-
-
+// Adds textView to MemeImageView on double tap
 #define MAX_TEXT_VIEWS 2
 
 - (void) addTextWithTapRecognizer:(UITapGestureRecognizer *)tap
@@ -47,10 +42,11 @@
     // capped at however many is too many
     if ([[self subviews]count] < MAX_TEXT_VIEWS) {
         // Creating text frame CGRect
-        CGRect memeTextFrame = CGRectMake(self.frame.origin.x, self.frame.origin.y - 100, self.frame.size.width - 20, self.frame.size.height - 20);
+        CGRect memeTextFrame = CGRectMake(0, 0, self.frame.size.width - 20, self.frame.size.height - 20);
         
         MemeTextView *memeText = [[MemeTextView alloc]initWithFrame:memeTextFrame];
         [self addSubview:memeText];
+        memeText.center = self.center;
     }
     
 }
