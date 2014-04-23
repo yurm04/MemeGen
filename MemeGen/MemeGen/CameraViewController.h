@@ -10,4 +10,5 @@
 
 @interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+- (void) takePhoto;
 @end

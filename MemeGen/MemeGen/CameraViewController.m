@@ -14,6 +14,9 @@
 
 @interface CameraViewController ()
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *takePhotoButton;
+
+
 @end
 
 @implementation CameraViewController
@@ -24,22 +27,34 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    /*
+    // this doesn't work...
+    // if camera tab and no camera avaialable, 'no camera' image will be set in view
+    // NSLog(@"Tab Index %lu", (unsigned long)[super.tabBarController selectedIndex]);
+     if (super.tabBarController.selectedIndex != 0){}
+    
+    
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+         may not do this
         UIImage* img = [UIImage imageNamed:@"camera.png"];
         UIImageView* imgView = [[UIImageView alloc]initWithImage: img];
         
         [self.view addSubview: imgView];
         imgView.center = self.view.center;
         // future:  make it load a background image in the view showing there is no camera available.
-        
-        NSLog(@"No Camera");
+     
+        [self.takePhotoButton setEnabled:NO];
     } else {
         // if there is a camera, cameraUI will start automatically
         [self startCameraControllerFromViewController:self usingDelegate:self];
         NSLog(@"Camera Loaded");
     }
+    */
     
-    
+}
+- (IBAction)takePhoto
+{
+    [self startCameraControllerFromViewController:self usingDelegate:self];
 }
 
 - (BOOL) startCameraControllerFromViewController: (UIViewController *) controller
@@ -66,18 +81,22 @@
     
 }
 
-#warning I have no idea if this will work
+
+
+
+
+
+
+/************************************************
+                    OTHER STUFF
+************************************************/
+/* Probably Won't need this.
 - (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     // if user presses cancel, the view will switch to "create tab"
     [super.tabBarController setSelectedIndex:0];
+    
 }
-
-
-
-
-
-
-
+*/
 
 /*
 #pragma mark - Navigation

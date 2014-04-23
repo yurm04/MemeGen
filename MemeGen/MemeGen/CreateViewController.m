@@ -9,6 +9,8 @@
 #import "CreateViewController.h"
 
 @import AssetsLibrary;
+#import "MemeImageView.h"
+
 
 @interface CreateViewController ()
 
@@ -21,9 +23,24 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    // should check to see if there is an album here.  If not, create one.
+    /*
+    // image to be used
+    UIImage *image = [UIImage imageNamed:@"camera.png"];
+    CGRect frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
+    SPUserResizableView *userResizableView = [[SPUserResizableView alloc] initWithFrame:frame];
+    // Creating image view to set as content
+    MemeImageView *meme = [[MemeImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, image.size.width, image.size.height) image:image];
+    userResizableView.contentView = meme;
+    [self.view addSubview:userResizableView];
+    userResizableView.center = self.view.center;
+    //SPUserResizeableView
+    */
     
-    
+    // adding meme image as subview
+    UIImage *image = [UIImage imageNamed:@"camera.png"];
+    MemeImageView *meme = [[MemeImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, image.size.width, image.size.height) image:image];
+    [self.view addSubview:meme];
+    meme.center = self.view.center;
 }
 
 - (void)didReceiveMemoryWarning

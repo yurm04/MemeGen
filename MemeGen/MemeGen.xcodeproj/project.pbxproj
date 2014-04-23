@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D82D135D1905BABA00CB0651 /* MemeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D135C1905BABA00CB0651 /* MemeTextView.m */; };
+		D82E601519035F72000194C2 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = D82E601419035F72000194C2 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		D8AE9CEB1904690B00A01A7B /* MGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AE9CEA1904690B00A01A7B /* MGViewController.m */; };
 		D8E0C4A71900674A00C91D25 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E0C4A61900674A00C91D25 /* CameraViewController.m */; };
-		D8E0C4AA1900733900C91D25 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E0C4A91900733900C91D25 /* ShareViewController.m */; };
 		D8E0CD3918FDAA050064A8F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E0CD3818FDAA050064A8F4 /* Foundation.framework */; };
 		D8E0CD3B18FDAA050064A8F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E0CD3A18FDAA050064A8F4 /* CoreGraphics.framework */; };
 		D8E0CD3D18FDAA050064A8F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E0CD3C18FDAA050064A8F4 /* UIKit.framework */; };
@@ -23,6 +25,7 @@
 		D8E0CD5A18FDAA050064A8F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E0CD3C18FDAA050064A8F4 /* UIKit.framework */; };
 		D8E0CD6218FDAA050064A8F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8E0CD6018FDAA050064A8F4 /* InfoPlist.strings */; };
 		D8E0CD6418FDAA050064A8F4 /* MemeGenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E0CD6318FDAA050064A8F4 /* MemeGenTests.m */; };
+		D8E6D0EF190583C40036CA28 /* MemeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6D0EE190583C40036CA28 /* MemeImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D82D135B1905BABA00CB0651 /* MemeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeTextView.h; sourceTree = "<group>"; };
+		D82D135C1905BABA00CB0651 /* MemeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeTextView.m; sourceTree = "<group>"; };
+		D82E601319035F72000194C2 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		D82E601419035F72000194C2 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		D8AE9CE91904690B00A01A7B /* MGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGViewController.h; sourceTree = "<group>"; };
+		D8AE9CEA1904690B00A01A7B /* MGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGViewController.m; sourceTree = "<group>"; };
 		D8E0C4A51900674A00C91D25 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		D8E0C4A61900674A00C91D25 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
-		D8E0C4A81900733900C91D25 /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
-		D8E0C4A91900733900C91D25 /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		D8E0CD3518FDAA050064A8F4 /* MemeGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E0CD3818FDAA050064A8F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8E0CD3A18FDAA050064A8F4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,6 +66,8 @@
 		D8E0CD5F18FDAA050064A8F4 /* MemeGenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MemeGenTests-Info.plist"; sourceTree = "<group>"; };
 		D8E0CD6118FDAA050064A8F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D8E0CD6318FDAA050064A8F4 /* MemeGenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemeGenTests.m; sourceTree = "<group>"; };
+		D8E6D0ED190583C40036CA28 /* MemeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeImageView.h; sourceTree = "<group>"; };
+		D8E6D0EE190583C40036CA28 /* MemeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,15 +94,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D82E601619035FAE000194C2 /* Asset Category */ = {
+			isa = PBXGroup;
+			children = (
+				D82E601319035F72000194C2 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				D82E601419035F72000194C2 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
+			);
+			name = "Asset Category";
+			sourceTree = "<group>";
+		};
+		D8CDFE5B1906E3AE0076A0D5 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				D8E0CD4D18FDAA050064A8F4 /* CreateViewController.h */,
+				D8E0CD4E18FDAA050064A8F4 /* CreateViewController.m */,
+				D8E6D0ED190583C40036CA28 /* MemeImageView.h */,
+				D8E6D0EE190583C40036CA28 /* MemeImageView.m */,
+				D82D135B1905BABA00CB0651 /* MemeTextView.h */,
+				D82D135C1905BABA00CB0651 /* MemeTextView.m */,
+			);
+			name = Create;
+			sourceTree = "<group>";
+		};
 		D8E0C4AB1900734400C91D25 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8AE9CE91904690B00A01A7B /* MGViewController.h */,
+				D8AE9CEA1904690B00A01A7B /* MGViewController.m */,
 				D8E0C4A51900674A00C91D25 /* CameraViewController.h */,
 				D8E0C4A61900674A00C91D25 /* CameraViewController.m */,
-				D8E0CD4D18FDAA050064A8F4 /* CreateViewController.h */,
-				D8E0CD4E18FDAA050064A8F4 /* CreateViewController.m */,
-				D8E0C4A81900733900C91D25 /* ShareViewController.h */,
-				D8E0C4A91900733900C91D25 /* ShareViewController.m */,
+				D8CDFE5B1906E3AE0076A0D5 /* Create */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -133,7 +163,7 @@
 			children = (
 				D8E0C4AB1900734400C91D25 /* View Controllers */,
 				D8E0CD4A18FDAA050064A8F4 /* Main.storyboard */,
-				D8E0CD5018FDAA050064A8F4 /* Images.xcassets */,
+				D82E601619035FAE000194C2 /* Asset Category */,
 				D8E0CD3F18FDAA050064A8F4 /* Supporting Files */,
 			);
 			path = MemeGen;
@@ -142,8 +172,9 @@
 		D8E0CD3F18FDAA050064A8F4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D8E0CD4818FDAA050064A8F4 /* AppDelegate.m */,
+				D8E0CD5018FDAA050064A8F4 /* Images.xcassets */,
 				D8E0CD4718FDAA050064A8F4 /* AppDelegate.h */,
+				D8E0CD4818FDAA050064A8F4 /* AppDelegate.m */,
 				D8E0CD4018FDAA050064A8F4 /* MemeGen-Info.plist */,
 				D8E0CD4118FDAA050064A8F4 /* InfoPlist.strings */,
 				D8E0CD4418FDAA050064A8F4 /* main.m */,
@@ -270,8 +301,11 @@
 				D8E0CD4F18FDAA050064A8F4 /* CreateViewController.m in Sources */,
 				D8E0C4A71900674A00C91D25 /* CameraViewController.m in Sources */,
 				D8E0CD4918FDAA050064A8F4 /* AppDelegate.m in Sources */,
-				D8E0C4AA1900733900C91D25 /* ShareViewController.m in Sources */,
+				D8E6D0EF190583C40036CA28 /* MemeImageView.m in Sources */,
 				D8E0CD4518FDAA050064A8F4 /* main.m in Sources */,
+				D82D135D1905BABA00CB0651 /* MemeTextView.m in Sources */,
+				D8AE9CEB1904690B00A01A7B /* MGViewController.m in Sources */,
+				D82E601519035F72000194C2 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
