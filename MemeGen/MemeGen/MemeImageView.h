@@ -12,7 +12,7 @@
 
 @interface MemeImageView : UIImageView
 
-- (id)initWithFrame:(CGRect)frame image: (UIImage *)image;
+- (id)initWithImage: (UIImage *)image;  //WithFrame:(CGRect)frame image: (UIImage *)image;
 
 - (void) addTextWithTapRecognizer: (UITapGestureRecognizer *)tap; // using tap gesture recognizer
 

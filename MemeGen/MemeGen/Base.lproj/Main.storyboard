@@ -74,10 +74,17 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKU-DW-At6">
+                                <rect key="frame" x="0.0" y="24" width="320" height="500"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="xfV-c2-9iL"/>
+                    <connections>
+                        <outlet property="memeView" destination="BKU-DW-At6" id="ERs-hG-hof"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPH-CF-O6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

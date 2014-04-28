@@ -1,8 +1,8 @@
 //
 //  ALAssetsLibrary category to handle a custom photo album
 //
-//  Created by Aferdita Muriqi on 04/09/14.
-//  Copyright (c) 2014 ADEV Inc. All rights reserved.
+//  Created by Marin Todorov on 10/26/11.
+//  Copyright (c) 2011 Marin Todorov. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

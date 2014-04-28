@@ -13,9 +13,9 @@
 
 #warning to scale images, self.contentMode = UIUIViewContentModeScaleAspectFit
 
-- (id)initWithFrame:(CGRect)frame image: (UIImage *)image
+- (id)initWithImage: (UIImage *)image //Frame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithImage:image];
     if (self) {
         self.image = image;
         self.bounds = super.frame;
@@ -30,12 +30,6 @@
     return self;
 }
 
-// Save View as Photo
-
-
-
-
-
 
 #define MAX_TEXT_VIEWS 2
 
@@ -47,8 +41,9 @@
     // capped at however many is too many
     if ([[self subviews]count] < MAX_TEXT_VIEWS) {
         // Creating text frame CGRect
-        CGRect memeTextFrame = CGRectMake(self.frame.origin.x, self.frame.origin.y - 100, self.frame.size.width - 20, self.frame.size.height - 20);
-        
+        CGPoint tapPoint = [tap locationInView:self];
+        //CGRect memeTextFrame = CGRectMake(self.frame.origin.x, self.frame.origin.y - 100, self.frame.size.width - 20, self.frame.size.height - 20);
+        CGRect memeTextFrame = CGRectMake(tapPoint.x, tapPoint.y, self.superview.frame.size.width, self.superview.frame.size.height / 3);
         MemeTextView *memeText = [[MemeTextView alloc]initWithFrame:memeTextFrame];
         [self addSubview:memeText];
     }
@@ -91,14 +86,14 @@
  return self;
  }
  
-  */
+ */
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end
