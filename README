@@ -1,0 +1,23 @@
+Included Frameworks:
+  - SQLite3
+  - Assets Library (images and camera use)
+
+Features:
+  - Access to camera roll images
+  - Take pictures with device camera
+  - Save custom images to device
+  - Custom touch gestures for event handling (double tap to add text, pinch to adjust text size, long press to edit, pan to drag view)
+
+Custom Class Files:
+  MemeCell.h
+  MemeCell.m - Custom Cell for collectionView
+  MemeText.h
+  MemeText.m - Subclassed UIView
+  MemeTextView.h  
+  MemeTextView.m - Subclassed UITextView
+  MGViewController.h
+  MGViewController.m
+  CreateViewController.h
+  CreateViewController.m
+  AppDelegate.h
+  AppDelegate.m - Database 

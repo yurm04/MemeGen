@@ -1,4 +1,0 @@
-MemeGen
-=======
-
-Meme Generator App
