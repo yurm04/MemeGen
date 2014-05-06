@@ -16,5 +16,6 @@
 
 - (void) addTextWithTapRecognizer: (UITapGestureRecognizer *)tap; // using tap gesture recognizer
 
+- (void) prepareImage;
 
 @end

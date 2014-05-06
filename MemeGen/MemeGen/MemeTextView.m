@@ -10,7 +10,6 @@
 
 @implementation MemeTextView
 
-#warning textView is not contrained to bounds!
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -26,48 +25,36 @@
         self.editable = YES;
         self.allowsEditingTextAttributes = YES;
         self.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-        self.backgroundColor = [UIColor yellowColor];
-        //[self becomeFirstResponder];
+        self.textAlignment = NSTextAlignmentCenter;
+        self.backgroundColor = [UIColor clearColor];
+        self.textColor = [UIColor blackColor];
         
-
-        // removing select gesture recognizers to implement my own
-        
+        // Removing select gesture recognizers in textView to implement my own
         for (UIGestureRecognizer *gesture in self.gestureRecognizers){
             if ([(UITapGestureRecognizer *)gesture isKindOfClass:[UITapGestureRecognizer class]]) {
                 if ([(UITapGestureRecognizer *)gesture numberOfTapsRequired] == 1 &&
                 [(UITapGestureRecognizer *)gesture numberOfTouchesRequired] == 1)
                 {
                     [gesture setEnabled:NO];
-                    
                 }
                 if ([(UITapGestureRecognizer *)gesture numberOfTapsRequired] == 2 &&
                     [(UITapGestureRecognizer *)gesture numberOfTouchesRequired] == 1)
                 {
                     [gesture setEnabled:NO];
-                    
                 }
             }
             if ([(UIPinchGestureRecognizer *)gesture isKindOfClass:[UIPinchGestureRecognizer class]] ) {
                 [gesture setEnabled:NO];
             }
         }
-        
-        
-        // double tap editing gesture recognizer
-        /* leave just in case...
-        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(textViewShouldEndEditing:)];
-        doubleTap.numberOfTapsRequired = 2;
-        [self addGestureRecognizer:doubleTap];
-        doubleTap.enabled = YES;
-        */
-        
-        // single tap to resign keyboard
+
+        // Single tap to resign keyboard
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(textViewShouldEndEditing:)];
         singleTap.numberOfTapsRequired = 1;
         [self addGestureRecognizer:singleTap];
         
-        // long press gesture recognizer for moving textview
-        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(textViewShouldEndEditing:)];
+        // Long press gesture recognizer for editing
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(textViewShouldBeginEditing:)];
         longPress.minimumPressDuration = 3;     // change this to a constant later
         [self addGestureRecognizer:longPress];
         
@@ -81,24 +68,23 @@
         UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc]initWithTarget:self action:@selector(changeFontSizeWithPinch:)];
         [self addGestureRecognizer:pinchGesture];
         pinchGesture.enabled = YES;
-        NSLog(@"%@", self.gestureRecognizers);
         
     }
     return self;
 }
 
+#define MAX_SIZE 42
+#define MIN_SIZE 13
 - (void) changeFontSizeWithPinch: (UIPinchGestureRecognizer *) recognizer
 {
-    NSLog(@"is this working");
     UIFont *font = self.font;
-    NSLog(@"%@", font);
 	CGFloat pointSize = font.pointSize;
 	NSString *fontName = font.fontName;
     
 	pointSize = ((recognizer.velocity > 0) ? 1 : -1) * 1 + pointSize;
 	
-	if (pointSize < 13) pointSize = 13;
-	if (pointSize > 42) pointSize = 42;
+	if (pointSize < MIN_SIZE) pointSize = MIN_SIZE;
+	if (pointSize > MAX_SIZE) pointSize = MAX_SIZE;
 	
 	self.font = [UIFont fontWithName:fontName size:pointSize];
 	

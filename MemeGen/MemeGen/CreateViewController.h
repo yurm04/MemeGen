@@ -7,18 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "MemeImageView.h"
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
-
-@interface CreateViewController : UIViewController
+@interface CreateViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) UIImage *passedImage;
-//@property (strong, nonatomic) MemeImageView *memeView;
-@property (strong, nonatomic) IBOutlet UIImageView *memeView;
+@property (strong, nonatomic) IBOutlet MemeImageView *memeView;
 
 - (void)savePhotoOfView:(UIImageView *)imageView;
-- (void)   savedPhotoImage:(UIImage *)image
-  didFinishSavingWithError:(NSError *)error
-               contextInfo:(void *)contextInfo;
+
+
 
 @end

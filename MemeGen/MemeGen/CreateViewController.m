@@ -9,11 +9,9 @@
 #import "CreateViewController.h"
 
 #import "MemeImageView.h"
-
+#import "AppDelegate.h"
 
 @interface CreateViewController ()
-
-
 
 @end
 
@@ -24,26 +22,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    /*
-     // image to be used
-     UIImage *image = [UIImage imageNamed:@"camera.png"];
-     CGRect frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
-     SPUserResizableView *userResizableView = [[SPUserResizableView alloc] initWithFrame:frame];
-     // Creating image view to set as content
-     MemeImageView *meme = [[MemeImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, image.size.width, image.size.height) image:image];
-     userResizableView.contentView = meme;
-     [self.view addSubview:userResizableView];
-     userResizableView.center = self.view.center;
-     //SPUserResizeableView
-     */
-    
-    // adding meme image as subview
-    //UIImage *image = [UIImage imageNamed:@"camera.png"];
-    // Using passedImage
-    //self.memeView = [[MemeImageView alloc]initWithFrame:CGRectMake(self.memeView.origin.size.x, 0.0, self.passedImage.size.width, self.passedImage.size.height) image:self.passedImage];
-    self.memeView = [[MemeImageView alloc]initWithImage:self.passedImage];
-    self.memeView.center = self.view.center;
+    self.memeView.image = self.passedImage;
+    [self.memeView prepareImage];
+    self.memeView.contentMode = UIViewContentModeScaleAspectFit;
+
+    // check if this works for center
     [self.view addSubview:self.memeView];
+    [self.memeView setCenter:CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds))];
     
 }
 - (IBAction)saveMeme:(id)sender {
@@ -52,65 +37,33 @@
 
 - (void)savePhotoOfView:(UIView *)imageView
 {
-    UIGraphicsBeginImageContext(imageView.bounds.size);
+    //UIGraphicsBeginImageContext(imageView.bounds.size);
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
     [imageView.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc]init];
-    [library saveImage:viewImage toAlbum:@"MemeGen" withCompletionBlock:^(NSError *error) {
-        if (error!=nil) {
-            NSLog(@"Big error: %@", [error description]);
-        } else {
-            
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                            message:@"Saved Image"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            
-            [alert show];
-            
-            // should probably try delegate protocol with MGViewController instead...
-            /*
-             look at this later https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ManagingDataFlowBetweenViewControllers/ManagingDataFlowBetweenViewControllers.html#//apple_ref/doc/uid/TP40007457-CH8-SW9
-             
-             */
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
+    [library writeImageToSavedPhotosAlbum:viewImage.CGImage orientation:(ALAssetOrientation)viewImage.imageOrientation completionBlock:^(NSURL* assetURL, NSError* error) {
+       
+        AppDelegate *appDelegate = [[AppDelegate alloc]init];
+        [appDelegate insertImageURL:assetURL];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:@"Saved Image"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+        
+        
     }];
-    
-    /*
-    UIImageWriteToSavedPhotosAlbum(viewImage,
-                                   self,
-                                   @selector(savedPhotoImage:didFinishSavingWithError:contextInfo:),
-                                   NULL);
-     */
-    
-    
 }
 
-- (void)   savedPhotoImage:(UIImage *)image
-  didFinishSavingWithError:(NSError *)error
-               contextInfo:(void *)contextInfo
-{
-    NSString *message = @"This image has been saved to your Photos album";
-    if (error) {
-        message = [error localizedDescription];
-    }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    // Dismiss to go back to the root view controller
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

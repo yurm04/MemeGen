@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D82D135D1905BABA00CB0651 /* MemeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D82D135C1905BABA00CB0651 /* MemeTextView.m */; };
-		D87F8A711908BC8E00EFD0D7 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = D87F8A701908BC8E00EFD0D7 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		D8AE9CEB1904690B00A01A7B /* MGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AE9CEA1904690B00A01A7B /* MGViewController.m */; };
 		D8E0CD3918FDAA050064A8F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E0CD3818FDAA050064A8F4 /* Foundation.framework */; };
 		D8E0CD3B18FDAA050064A8F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E0CD3A18FDAA050064A8F4 /* CoreGraphics.framework */; };
@@ -25,6 +24,8 @@
 		D8E0CD6218FDAA050064A8F4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8E0CD6018FDAA050064A8F4 /* InfoPlist.strings */; };
 		D8E0CD6418FDAA050064A8F4 /* MemeGenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E0CD6318FDAA050064A8F4 /* MemeGenTests.m */; };
 		D8E6D0EF190583C40036CA28 /* MemeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6D0EE190583C40036CA28 /* MemeImageView.m */; };
+		D8EF90C5190ADEC0004F2617 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EF90C4190ADEC0004F2617 /* libsqlite3.dylib */; };
+		D8EF90C8190C45B4004F2617 /* MemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EF90C7190C45B4004F2617 /* MemeCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +41,6 @@
 /* Begin PBXFileReference section */
 		D82D135B1905BABA00CB0651 /* MemeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeTextView.h; sourceTree = "<group>"; };
 		D82D135C1905BABA00CB0651 /* MemeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeTextView.m; sourceTree = "<group>"; };
-		D87F8A6F1908BC8E00EFD0D7 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
-		D87F8A701908BC8E00EFD0D7 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		D8AE9CE91904690B00A01A7B /* MGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGViewController.h; sourceTree = "<group>"; };
 		D8AE9CEA1904690B00A01A7B /* MGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGViewController.m; sourceTree = "<group>"; };
 		D8E0CD3518FDAA050064A8F4 /* MemeGen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeGen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +64,9 @@
 		D8E0CD6318FDAA050064A8F4 /* MemeGenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemeGenTests.m; sourceTree = "<group>"; };
 		D8E6D0ED190583C40036CA28 /* MemeImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeImageView.h; sourceTree = "<group>"; };
 		D8E6D0EE190583C40036CA28 /* MemeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeImageView.m; sourceTree = "<group>"; };
+		D8EF90C4190ADEC0004F2617 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		D8EF90C6190C45B4004F2617 /* MemeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemeCell.h; sourceTree = "<group>"; };
+		D8EF90C7190C45B4004F2617 /* MemeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemeCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8EF90C5190ADEC0004F2617 /* libsqlite3.dylib in Frameworks */,
 				D8E0CD3B18FDAA050064A8F4 /* CoreGraphics.framework in Frameworks */,
 				D8E0CD3D18FDAA050064A8F4 /* UIKit.framework in Frameworks */,
 				D8E0CD3918FDAA050064A8F4 /* Foundation.framework in Frameworks */,
@@ -91,26 +94,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D82E601619035FAE000194C2 /* Asset Category */ = {
+		D8CDFE5B1906E3AE0076A0D5 /* Meme Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D87F8A6F1908BC8E00EFD0D7 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
-				D87F8A701908BC8E00EFD0D7 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
-			);
-			name = "Asset Category";
-			sourceTree = "<group>";
-		};
-		D8CDFE5B1906E3AE0076A0D5 /* Create */ = {
-			isa = PBXGroup;
-			children = (
-				D8E0CD4D18FDAA050064A8F4 /* CreateViewController.h */,
-				D8E0CD4E18FDAA050064A8F4 /* CreateViewController.m */,
+				D8EF90C6190C45B4004F2617 /* MemeCell.h */,
+				D8EF90C7190C45B4004F2617 /* MemeCell.m */,
 				D8E6D0ED190583C40036CA28 /* MemeImageView.h */,
 				D8E6D0EE190583C40036CA28 /* MemeImageView.m */,
 				D82D135B1905BABA00CB0651 /* MemeTextView.h */,
 				D82D135C1905BABA00CB0651 /* MemeTextView.m */,
 			);
-			name = Create;
+			name = "Meme Classes";
 			sourceTree = "<group>";
 		};
 		D8E0CD2C18FDAA050064A8F4 = {
@@ -135,6 +129,7 @@
 		D8E0CD3718FDAA050064A8F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8EF90C4190ADEC0004F2617 /* libsqlite3.dylib */,
 				D8E0CD3818FDAA050064A8F4 /* Foundation.framework */,
 				D8E0CD3A18FDAA050064A8F4 /* CoreGraphics.framework */,
 				D8E0CD3C18FDAA050064A8F4 /* UIKit.framework */,
@@ -146,11 +141,14 @@
 		D8E0CD3E18FDAA050064A8F4 /* MemeGen */ = {
 			isa = PBXGroup;
 			children = (
+				D8E0CD4718FDAA050064A8F4 /* AppDelegate.h */,
+				D8E0CD4818FDAA050064A8F4 /* AppDelegate.m */,
 				D8AE9CE91904690B00A01A7B /* MGViewController.h */,
 				D8AE9CEA1904690B00A01A7B /* MGViewController.m */,
-				D8CDFE5B1906E3AE0076A0D5 /* Create */,
+				D8E0CD4D18FDAA050064A8F4 /* CreateViewController.h */,
+				D8E0CD4E18FDAA050064A8F4 /* CreateViewController.m */,
+				D8CDFE5B1906E3AE0076A0D5 /* Meme Classes */,
 				D8E0CD4A18FDAA050064A8F4 /* Main.storyboard */,
-				D82E601619035FAE000194C2 /* Asset Category */,
 				D8E0CD3F18FDAA050064A8F4 /* Supporting Files */,
 			);
 			path = MemeGen;
@@ -160,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				D8E0CD5018FDAA050064A8F4 /* Images.xcassets */,
-				D8E0CD4718FDAA050064A8F4 /* AppDelegate.h */,
-				D8E0CD4818FDAA050064A8F4 /* AppDelegate.m */,
 				D8E0CD4018FDAA050064A8F4 /* MemeGen-Info.plist */,
 				D8E0CD4118FDAA050064A8F4 /* InfoPlist.strings */,
 				D8E0CD4418FDAA050064A8F4 /* main.m */,
@@ -288,7 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D87F8A711908BC8E00EFD0D7 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
+				D8EF90C8190C45B4004F2617 /* MemeCell.m in Sources */,
 				D8E0CD4F18FDAA050064A8F4 /* CreateViewController.m in Sources */,
 				D8E0CD4918FDAA050064A8F4 /* AppDelegate.m in Sources */,
 				D8E6D0EF190583C40036CA28 /* MemeImageView.m in Sources */,

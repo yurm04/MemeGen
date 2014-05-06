@@ -7,8 +7,7 @@
 //
 
 #import "MGViewController.h"
-
-
+#import <objc/runtime.h> // for objc_setAssociatedObject / objc_getAssociatedObject
 
 @interface MGViewController ()
 
@@ -27,13 +26,105 @@
         [self.takePhotoButton setEnabled:NO];
     }
     
-    // Using the Assets Library to populate collection view
+    // Reload the collection view
+    
 }
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [self.collectionView reloadData];
+}
+
+// Images getter
+- (NSMutableArray *) images
+{
+    
+        AppDelegate *appDelegate = [[AppDelegate alloc]init];
+        _images = [[NSMutableArray alloc]initWithArray:[appDelegate populateImages]];
+    
+    return _images;
+}
+
+/////////////////////
+// COLLECTION VIEW //
+/////////////////////
+#pragma mark - Collection View
+- (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.images.count;
+    
+}
+
+- (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MemeCell *cell = (MemeCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"MemeCell" forIndexPath:indexPath];
+    
+    [cell setMeme:self.images[indexPath.row]];
+    
+    return cell;
+}
+
+- (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 4;
+}
+
+- (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 1;
+}
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
+    
+    UIImageView* cellImageView = cell.contentView.subviews.lastObject;
+    
+    UIImageView* expandedImageView = [[UIImageView alloc] initWithImage: cellImageView.image];
+    expandedImageView.contentMode = cellImageView.contentMode;
+    expandedImageView.frame = [self.view convertRect: cellImageView.frame fromView: cellImageView.superview];
+    expandedImageView.userInteractionEnabled = YES;
+    expandedImageView.clipsToBounds = YES;
+    
+    objc_setAssociatedObject( expandedImageView,
+                             "original_frame",
+                             [NSValue valueWithCGRect: expandedImageView.frame],
+                             OBJC_ASSOCIATION_RETAIN);
+    
+    [UIView transitionWithView: self.view
+                      duration: 0.3
+                       options: UIViewAnimationOptionAllowAnimatedContent
+                    animations:^{
+                        
+                        [self.view.window addSubview: expandedImageView];
+                        expandedImageView.frame = self.view.bounds;
+                        
+                    } completion:^(BOOL finished) {
+                        
+                        UITapGestureRecognizer* tgr = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector( onTap: )];
+                        [expandedImageView addGestureRecognizer: tgr];
+                    }];
+}
+
+- (void) onTap: (UITapGestureRecognizer*) tgr
+{
+    [UIView animateWithDuration: 0.3
+                     animations:^{
+                         
+                         tgr.view.frame = [objc_getAssociatedObject( tgr.view,
+                                                                    "original_frame" ) CGRectValue];
+                     } completion:^(BOOL finished) {
+                         
+                         [tgr.view removeFromSuperview];
+                     }];
+}
+
+
+
 
 ////////////////////
 // CAMERA CONTROL //
 ////////////////////
-
 #pragma mark - Camera Controls
 
 // Brings Up Camera UI
@@ -46,17 +137,6 @@
     picker.delegate = self;
     
     // camera interface and user interaction handled by the system
-    
-    /*
-     Have to set media types.  Set mediaTypes property to an array containing still image type
-     first call availableMediaTypesForSourceType: class method to find out which media types are available
-     do an if statment to save the still image type to an array
-     call the mediaTypes method with the array with only still images
-     or apparently the default value is image only?
-     [picker mediaTypes:@[@"kUTTypeImage"]];
-     For stills only
-     */
-    
     
     // picker allows editing
     picker.allowsEditing = YES;
@@ -75,13 +155,12 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
-// Handles selected image, will prepare to segue to the CreateMeme VC
+// Handles selected image, will present CreateViewController
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
         UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
         self.pickedImage = chosenImage;
-        
     }
     else
     {
@@ -89,19 +168,17 @@
         self.pickedImage = chosenImage;
     }
     
-    [picker dismissViewControllerAnimated:YES completion:NULL];
+    [picker dismissViewControllerAnimated:YES completion:nil];
     [self presentCreateMemeViewController:self];
-    
 }
 
 
 ////////////////
 // NAVIGATION //
 ////////////////
-
 #pragma mark - Navigation
 
-// Presenting CreateMeme programatically because it can be presented by either taking a camera or selecting image
+// Presenting CreateMeme programatically because it can be presented by either taking a camera or selecting an image
 - (void) presentCreateMemeViewController: (id)sender
 {
     CreateViewController *createVC = [self.storyboard instantiateViewControllerWithIdentifier:@"CreateMeme"];
@@ -111,17 +188,6 @@
     [self.navigationController pushViewController:createVC animated:YES];
 }
 
-/*
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- CreateViewController *createVC = (CreateViewController *)segue.destinationViewController;
- createVC.passedImage = self.pickedImage;
- 
- }
- */
 
 
 

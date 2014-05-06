@@ -10,7 +10,5 @@
 
 @interface MemeTextView : UITextView <UITextViewDelegate>
 
-- (void) changeFontStyle;
-
 - (void) changeFontSizeWithPinch: (UIPinchGestureRecognizer *) recognizer;
 @end
